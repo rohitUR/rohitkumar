@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes MJPRU | The Ultimate Study Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .dept-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
+        .active-tab { background-color: #3b82f6; color: white; border-color: #3b82f6; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="bg-[#F9FAFB] text-slate-900">
+
+    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="location.reload()">
+                <div class="bg-blue-600 p-2 rounded-xl text-white"><i data-lucide="book-open"></i></div>
+                <span class="text-xl font-extrabold tracking-tighter">Notes MJPRU</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-bold text-slate-600">
+                <a href="#departments" class="hover:text-blue-600">Departments</a>
+                <a href="#features" class="hover:text-blue-600">How it works</a>
+                <a href="https://wa.me/yournumber" class="text-blue-600 border border-blue-600 px-4 py-1.5 rounded-full hover:bg-blue-600 hover:text-white transition">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white py-16 lg:py-24 border-b border-slate-100">
+        <div class="container mx-auto px-4 text-center">
+            <div class="inline-block bg-blue-50 text-blue-600 px-4 py-1 rounded-full text-sm font-bold mb-6 animate__animated animate__fadeInDown">
+                🚀 MJPRU's #1 Resource Marketplace
+            </div>
+            <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Everything you need to <br><span class="text-blue-600">Ace your Exams.</span></h1>
+            <p class="text-lg text-slate-500 mb-10 max-w-2xl mx-auto">One platform for all MJPRU departments. Get PYQs, Handwritten Notes, Lab Files, and Toppers' Specials in seconds.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#explore" class="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-lg shadow-blue-200 hover:scale-105 transition">Explore All Notes</a>
+                <div class="flex -space-x-2">
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200"></div>
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-300"></div>
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-blue-400 flex items-center justify-center text-[10px] text-white font-bold">5K+</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="py-12 border-b border-slate-50 bg-white">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="text-blue-600 mb-2 flex justify-center"><i data-lucide="zap"></i></div>
+                <h4 class="font-bold">Instant Access</h4>
+            </div>
+            <div class="text-center">
+                <div class="text-blue-600 mb-2 flex justify-center"><i data-lucide="shield-check"></i></div>
+                <h4 class="font-bold">Verified PDFs</h4>
+            </div>
+            <div class="text-center">
+                <div class="text-blue-600 mb-2 flex justify-center"><i data-lucide="users"></i></div>
+                <h4 class="font-bold">Toppers Choice</h4>
+            </div>
+            <div class="text-center">
+                <div class="text-blue-600 mb-2 flex justify-center"><i data-lucide="credit-card"></i></div>
+                <h4 class="font-bold">Secure UPI</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="explore" class="py-20 container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <div class="lg:w-1/4">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i data-lucide="layout-grid" class="w-5 h-5"></i> All Departments
+                </h3>
+                <div class="space-y-2" id="dept-list">
+                    </div>
+                
+                <div class="mt-12 bg-blue-600 rounded-3xl p-6 text-white overflow-hidden relative">
+                    <h4 class="font-bold text-lg mb-2">Sell your notes!</h4>
+                    <p class="text-blue-100 text-sm mb-4">Earn money by sharing your handwritten notes with others.</p>
+                    <button class="bg-white text-blue-600 px-4 py-2 rounded-xl font-bold text-sm">Become a Seller</button>
+                    <i data-lucide="trending-up" class="absolute -bottom-2 -right-2 w-20 h-20 text-blue-500 opacity-50"></i>
+                </div>
+            </div>
+
+            <div class="lg:w-3/4">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <h3 id="current-dept-title" class="text-2xl font-bold text-blue-600 italic">Select a department</h3>
+                    <div class="flex gap-2 bg-slate-100 p-1 rounded-xl">
+                        <button class="px-4 py-1.5 rounded-lg text-sm font-bold bg-white shadow-sm">All Files</button>
+                        <button class="px-4 py-1.5 rounded-lg text-sm font-bold text-slate-500">PYQs</button>
+                    </div>
+                </div>
+
+                <div id="notes-grid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-slate-100 py-12 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-slate-400 text-sm">© 2026 NOTES MJPRU • Built for the Students of Bareilly</p>
+        </div>
+    </footer>
+
+    <div id="paymentModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden flex items-center justify-center p-6 backdrop-blur-sm">
+        <div class="bg-white rounded-[32px] p-8 max-w-sm w-full text-center shadow-2xl animate__animated animate__zoomIn">
+            <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="shield-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Secure Payment</h3>
+            <p id="modalNoteName" class="text-slate-500 text-sm mb-6"></p>
+            <div class="bg-slate-50 p-4 rounded-2xl mb-6">
+                <p class="text-xs text-slate-400 uppercase font-bold tracking-widest mb-1">Total Amount</p>
+                <p id="modalPrice" class="text-3xl font-black text-slate-900"></p>
+            </div>
+            <button onclick="confirmOrder()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 mb-4 hover:bg-blue-700 transition">
+                Pay via UPI / Card
+            </button>
+            <button onclick="closeModal()" class="text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-red-500 transition">Cancel Order</button>
+        </div>
+    </div>
+
+    <script>
+        // Data Structure - Add more depts and notes easily here
+        const data = {
+            "Chemical Engineering": [
+                { title: "Thermodynamics-I", type: "Handwritten", price: "₹99", tag: "Best Seller" },
+                { title: "Fluid Mechanics Lab File", type: "Lab File", price: "₹49", tag: "Updated" },
+                { title: "Mass Transfer PYQ", type: "PYQ", price: "₹29", tag: "FREE" }
+            ],
+            "Computer Science": [
+                { title: "DBMS Full Notes", type: "Toppers Special", price: "₹79", tag: "Must Have" },
+                { title: "Python Programming", type: "Notes", price: "₹59", tag: "" },
+                { title: "OS Previous 5 Years", type: "PYQ", price: "₹39", tag: "" }
+            ],
+            "Physics (B.Sc)": [
+                { title: "Optics & Lasers", type: "Teacher Notes", price: "₹69", tag: "Popular" },
+                { title: "Mechanics Unit-1", type: "Handwritten", price: "₹49", tag: "" }
+            ],
+            "B.Com / Management": [
+                { title: "Financial Accounting", type: "Notes", price: "₹89", tag: "New" }
+            ],
+            "Law (LLB)": [
+                { title: "Constitutional Law-1", type: "Case Studies", price: "₹99", tag: "Recommended" }
+            ]
+        };
+
+        // Initialize UI
+        function init() {
+            const deptList = document.getElementById('dept-list');
+            Object.keys(data).forEach((dept, index) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left px-5 py-3.5 rounded-2xl font-bold transition-all border border-transparent dept-btn mb-2 flex items-center justify-between group`;
+                btn.innerHTML = `${dept} <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all"></i>`;
+                btn.onclick = () => loadNotes(dept, btn);
+                deptList.appendChild(btn);
+                if(index === 0) loadNotes(dept, btn); // Load first by default
+            });
+            lucide.createIcons();
+        }
+
+        function loadNotes(dept, element) {
+            // Update UI State
+            document.querySelectorAll('.dept-btn').forEach(b => b.classList.remove('active-tab', 'shadow-md'));
+            element.classList.add('active-tab', 'shadow-md');
+            document.getElementById('current-dept-title').innerText = dept;
+
+            const grid = document.getElementById('notes-grid');
+            grid.innerHTML = '';
+
+            data[dept].forEach(note => {
+                const card = `
+                <div class="bg-white rounded-[24px] p-2 border border-slate-100 hover:border-blue-200 transition-all shadow-sm group animate__animated animate__fadeIn">
+                    <div class="h-40 bg-slate-50 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden">
+                        ${note.tag ? `<span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-black px-2 py-1 rounded-lg z-10">${note.tag}</span>` : ''}
+                        <i data-lucide="file-text" class="w-12 h-12 text-slate-200 group-hover:text-blue-200 transition-colors"></i>
+                    </div>
+                    <div class="px-3 pb-3">
+                        <span class="text-[10px] font-bold text-blue-500 uppercase tracking-widest">${note.type}</span>
+                        <h4 class="font-bold text-lg mb-4 text-slate-800 leading-tight">${note.title}</h4>
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-50">
+                            <span class="text-xl font-black text-slate-900">${note.price}</span>
+                            <button onclick="openPayment('${note.title}', '${note.price}')" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-blue-600 transition active:scale-95">Buy Now</button>
+                        </div>
+                    </div>
+                </div>`;
+                grid.innerHTML += card;
+            });
+            lucide.createIcons();
+        }
+
+        function openPayment(name, price) {
+            document.getElementById('modalNoteName').innerText = name;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        function confirmOrder() {
+            alert("Secure Payment Gateway Opening...\nAfter payment, your download will start automatically.");
+            closeModal();
+        }
+
+        init();
+    </script>
+</body>
+</html>
